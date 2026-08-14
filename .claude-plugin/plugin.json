@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "deep-handoff",
+  "displayName": "Deep Handoff",
+  "version": "1.0.0",
+  "description": "Write a session-close handoff that survives: a handoff document, durable facts wired into the project's own docs, scripts smoke-tested, and a paste-ready continuation prompt — then verified in rounds, changing the probe each round.",
+  "author": {
+    "name": "Raicho Minev",
+    "url": "https://github.com/raichominev"
+  },
+  "homepage": "https://github.com/raichominev/session-handoff-skill",
+  "repository": "https://github.com/raichominev/session-handoff-skill",
+  "license": "MIT",
+  "keywords": [
+    "session-handoff",
+    "context-management",
+    "documentation",
+    "verification",
+    "agent-skills",
+    "prompt-engineering",
+    "developer-tools"
+  ]
+}
