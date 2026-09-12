@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "deep-handoff",
   "displayName": "Deep Handoff",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Write a session-close handoff that survives: a handoff document, durable facts wired into the project's own docs, scripts smoke-tested, and a paste-ready continuation prompt — then verified in rounds, changing the probe each round.",
   "author": {
     "name": "Raicho Minev",

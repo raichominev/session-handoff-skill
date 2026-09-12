@@ -45,6 +45,26 @@ to escalate.
 
 ## Install
 
+This repository is named `session-handoff-skill`. The plugin and the skill are both named
+**`deep-handoff`**. Use `deep-handoff` in every command.
+
+**As a plugin**
+
+The plugin is in the **`raicho-skills`** marketplace. That marketplace keeps its manifest in the
+[concilium](https://github.com/raichominev/concilium) repository, so `concilium` is the repository you
+add. The plugin you then install is this one:
+
+```
+/plugin marketplace add raichominev/concilium
+/plugin install deep-handoff@raicho-skills
+```
+
+[compaction-handoff](https://github.com/raichominev/compaction-handoff) declares this plugin as a
+dependency. If you install that plugin, you get this one with it, and you do not need the second
+command.
+
+**Or by hand**
+
 Copy `SKILL.md` into a skills directory:
 
 ```
@@ -54,6 +74,18 @@ Copy `SKILL.md` into a skills directory:
 
 Invoke with `/deep-handoff`, or just say "handoff" / "session close" / "prepare a continuation
 prompt" — the description triggers on those.
+
+## Packaging note
+
+**`SKILL.md` must stay at the root of this repository.** The marketplace entry installs this plugin
+from a `git-subdir` source, and that source writes the sparse-checkout pattern `/*` then `!/*/`. The
+pattern selects root-level files and excludes every directory. Measured on the installed copy at
+`~/.claude/plugins/cache/raicho-skills/deep-handoff/1.0.0/`: it holds `LICENSE`, `README.md` and
+`SKILL.md`, and it does not hold `.claude-plugin/plugin.json`.
+
+Two things follow. A move of `SKILL.md` into `skills/deep-handoff/` keeps it out of the installed
+copy, and the plugin then installs with no skill. The version that users see comes from the
+marketplace entry, not from `plugin.json` in this repository, so a release must change both.
 
 ## Notes
 
