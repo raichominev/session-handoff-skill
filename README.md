@@ -50,13 +50,12 @@ This repository is named `session-handoff-skill`. The plugin and the skill are b
 
 **As a plugin**
 
-The plugin is in the **`raicho-skills`** marketplace. That marketplace keeps its manifest in the
-[concilium](https://github.com/raichominev/concilium) repository, so `concilium` is the repository you
-add. The plugin you then install is this one:
+The plugin is in the **`raicho-handoffs`** marketplace, whose manifest lives in the
+[compaction-handoff](https://github.com/raichominev/compaction-handoff) repository:
 
 ```
-/plugin marketplace add raichominev/concilium
-/plugin install deep-handoff@raicho-skills
+/plugin marketplace add raichominev/compaction-handoff
+/plugin install deep-handoff@raicho-handoffs
 ```
 
 [compaction-handoff](https://github.com/raichominev/compaction-handoff) declares this plugin as a
@@ -79,8 +78,8 @@ prompt" — the description triggers on those.
 
 **`SKILL.md` must stay at the root of this repository.** The marketplace entry installs this plugin
 from a `git-subdir` source, and that source writes the sparse-checkout pattern `/*` then `!/*/`. The
-pattern selects root-level files and excludes every directory. Measured on the installed copy at
-`~/.claude/plugins/cache/raicho-skills/deep-handoff/1.0.0/`: it holds `LICENSE`, `README.md` and
+pattern selects root-level files and excludes every directory. Measured on an installed copy at
+`~/.claude/plugins/cache/<marketplace>/deep-handoff/<version>/`: it holds `LICENSE`, `README.md` and
 `SKILL.md`, and it does not hold `.claude-plugin/plugin.json`.
 
 Two things follow. A move of `SKILL.md` into `skills/deep-handoff/` keeps it out of the installed
